@@ -17,6 +17,7 @@ public class YourLogoTestPagePOM {
     public By zipCode = new By.ByCssSelector("#postcode");
     public By phoneNumber = new By.ByCssSelector("#phone_mobile");
     public By register = new By.ByCssSelector("#submitAccount");
+    public By logOut = new By.ByCssSelector(".logout");
     public By logInEmail = new By.ByCssSelector("#email");
     public By signInEmailPass = new By.ByCssSelector("#SubmitLogin");
     public By women = new By.ByCssSelector("#block_top_menu > ul > li:nth-child(1)");

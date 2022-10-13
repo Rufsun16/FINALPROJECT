@@ -18,7 +18,7 @@ import java.util.List;
 public class YourLogoTest extends MainBaseMethod {
     WebDriver driver;
     YourLogoTestPagePOM yourLogoTestPagePOM = new YourLogoTestPagePOM();
-    static final String ExcelFilePath = System.getProperty("user.dir") + "/ExcelFile/ExcelBook.xlsx";
+    static final String ExcelFilePath = System.getProperty("user.dir") + "/ExcelFile/ExcelBook_Rufsun.xlsx";
     WebDriverWait wait;
 
     @BeforeClass
@@ -34,7 +34,7 @@ public class YourLogoTest extends MainBaseMethod {
     }
 
     @Test(dataProvider = "loadFormData")
-    void yourLogoRegisterAndLogin(String email, String title, String firstName, String lastName, String password, String address, String city, double zipCode, double phone) throws InterruptedException {
+    void yourLogoRegisterAndLogin(String email, String title, String firstName, String lastName, String password, String address, String city, String zipCode, String phone) throws InterruptedException {
         driver.get(yourLogoTestPagePOM.pageUrl);
         click(yourLogoTestPagePOM.signIn);
         Faker faker = new Faker();
@@ -55,10 +55,9 @@ public class YourLogoTest extends MainBaseMethod {
         sendKeysToElement(yourLogoTestPagePOM.city, city);
         selectByVisibleText(yourLogoTestPagePOM.state, "New York");
         sendKeysToElement(yourLogoTestPagePOM.zipCode, String.valueOf(zipCode));
-        System.out.println(zipCode);
         sendKeysToElement(yourLogoTestPagePOM.phoneNumber, String.valueOf(phone));
-        System.out.println(phone);
         click(yourLogoTestPagePOM.register);
+        click(yourLogoTestPagePOM.logOut);
 
         driver.get(yourLogoTestPagePOM.pageUrl);
         click(yourLogoTestPagePOM.signIn);
